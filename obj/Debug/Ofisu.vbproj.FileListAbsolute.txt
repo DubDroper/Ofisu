@@ -1,0 +1,12 @@
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.vbproj.AssemblyReference.cache
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.Main.resources
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.Resources.resources
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.vbproj.GenerateResource.cache
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.vbproj.CoreCompileInputs.cache
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\Ofisu.exe.config
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\Ofisu.exe
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\Ofisu.pdb
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\Ofisu.xml
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.exe
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.xml
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.pdb
