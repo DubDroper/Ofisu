@@ -1,6 +1,4 @@
 ﻿Imports System.Runtime.InteropServices
-Imports System.Drawing.Drawing2D
-Imports System.Windows.Forms
 
 Public Class RoundedForm
     Inherits Form

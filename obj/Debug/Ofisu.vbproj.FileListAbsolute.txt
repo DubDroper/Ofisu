@@ -10,3 +10,5 @@ F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\Ofisu.xml
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.exe
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.xml
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.pdb
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\bin\Debug\MaterialSkin.dll
+F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.vbproj.CopyComplete
