@@ -22,7 +22,17 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.MainPanel = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
+        '
+        'MainPanel
+        '
+        Me.MainPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MainPanel.Location = New System.Drawing.Point(10, 10)
+        Me.MainPanel.Name = "MainPanel"
+        Me.MainPanel.Size = New System.Drawing.Size(1220, 700)
+        Me.MainPanel.TabIndex = 0
         '
         'Main
         '
@@ -30,6 +40,7 @@ Partial Class Main
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1240, 720)
         Me.ControlBox = False
+        Me.Controls.Add(Me.MainPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1240, 720)
@@ -41,4 +52,6 @@ Partial Class Main
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents MainPanel As Panel
 End Class

@@ -21,7 +21,7 @@ Public Class RoundedForm
         MyBase.OnPaint(e)
 
         ' Set the form region to a rounded rectangle
-        Dim regionHandle As IntPtr = CreateRoundRectRgn(0, 0, Width, Height, 30, 30)
+        Dim regionHandle As IntPtr = CreateRoundRectRgn(0, 0, Width, Height, 15, 15)
         Me.Region = Region.FromHrgn(regionHandle)
 
         ' Clean up the region handle

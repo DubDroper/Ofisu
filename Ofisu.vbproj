@@ -98,9 +98,6 @@
     <Compile Include="RoundedForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoundedPanel.vb">
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">
