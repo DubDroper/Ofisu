@@ -152,7 +152,7 @@ Partial Class About
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Location = New System.Drawing.Point(10, 288)
+        Me.Panel3.Location = New System.Drawing.Point(10, 274)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(364, 5)
         Me.Panel3.TabIndex = 9
@@ -163,7 +163,7 @@ Partial Class About
         Me.VersionLbl.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.VersionLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.VersionLbl.ForeColor = System.Drawing.Color.White
-        Me.VersionLbl.Location = New System.Drawing.Point(0, 345)
+        Me.VersionLbl.Location = New System.Drawing.Point(0, 324)
         Me.VersionLbl.Name = "VersionLbl"
         Me.VersionLbl.Padding = New System.Windows.Forms.Padding(8, 0, 0, 8)
         Me.VersionLbl.Size = New System.Drawing.Size(80, 27)
@@ -178,7 +178,7 @@ Partial Class About
         Me.AboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AboutBtn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.AboutBtn.ForeColor = System.Drawing.Color.Transparent
-        Me.AboutBtn.Location = New System.Drawing.Point(107, 305)
+        Me.AboutBtn.Location = New System.Drawing.Point(107, 285)
         Me.AboutBtn.Name = "AboutBtn"
         Me.AboutBtn.Size = New System.Drawing.Size(171, 36)
         Me.AboutBtn.TabIndex = 11
@@ -190,7 +190,7 @@ Partial Class About
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(384, 372)
+        Me.ClientSize = New System.Drawing.Size(384, 351)
         Me.Controls.Add(Me.AboutBtn)
         Me.Controls.Add(Me.VersionLbl)
         Me.Controls.Add(Me.Panel3)

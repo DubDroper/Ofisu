@@ -1,6 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.IO
-Imports System.Threading.Tasks
+﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class Main
@@ -17,6 +15,8 @@ Public Class Main
     Private dbName As String
     Private dbUserId As String
     Private dbPassword As String
+
+
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -37,6 +37,15 @@ Public Class Main
 
         ' Start the MySQL connection check in the background
         Task.Run(AddressOf CheckMySqlConnection)
+
+    End Sub
+
+    Private Sub UpdateDateTimeLabel()
+        ' Get the current date and time
+        Dim currentDateTime As String = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss")
+
+        ' Set the label's text to the current date and time
+        TimeDateLbl.Text = currentDateTime
 
     End Sub
 
@@ -159,6 +168,9 @@ Public Class Main
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+
+        UpdateDateTimeLabel()
+
         If MainTitle.Text = "Ofisu" Then
             MainTitle.Text = "Ofisu_"
         Else
@@ -198,4 +210,33 @@ Public Class Main
         About.Show()
     End Sub
 
+    Private Sub btnAddTask_Click(sender As Object, e As EventArgs) Handles btnAddTask.Click
+
+        Dim task As String = TaskTxtBox.Text
+
+        If Not String.IsNullOrWhiteSpace(task) Then
+            TaskListBox.Items.Add(task)
+            TaskTxtBox.Clear()
+        End If
+
+    End Sub
+
+    Private Sub btnCompleteTask_Click(sender As Object, e As EventArgs) Handles btnCompleteTask.Click
+
+        Dim item As String
+        item = TaskListBox.SelectedItem
+
+        TaskListBox.Items.Remove(item)
+        TaskListBox.Items.Add("[Complete] " & item)
+
+
+    End Sub
+
+    Private Sub btnDeleteTask_Click(sender As Object, e As EventArgs) Handles btnDeleteTask.Click
+
+        While TaskListBox.SelectedItems.Count > 0
+            TaskListBox.Items.Remove(TaskListBox.SelectedItem)
+        End While
+
+    End Sub
 End Class
