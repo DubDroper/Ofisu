@@ -17,7 +17,6 @@ Public Class Main
     Private dbPassword As String
 
 
-
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         isMainDbOnlinePicBoxColor = False
@@ -48,6 +47,8 @@ Public Class Main
         TimeDateLbl.Text = currentDateTime
 
     End Sub
+
+
 
     Private Sub CheckAndCreateConfigFile()
         If Not File.Exists(configFilePath) Then
