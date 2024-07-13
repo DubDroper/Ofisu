@@ -178,11 +178,11 @@ Partial Class About
         Me.AboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AboutBtn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.AboutBtn.ForeColor = System.Drawing.Color.Transparent
-        Me.AboutBtn.Location = New System.Drawing.Point(214, 307)
+        Me.AboutBtn.Location = New System.Drawing.Point(107, 305)
         Me.AboutBtn.Name = "AboutBtn"
-        Me.AboutBtn.Size = New System.Drawing.Size(143, 48)
+        Me.AboutBtn.Size = New System.Drawing.Size(171, 36)
         Me.AboutBtn.TabIndex = 11
-        Me.AboutBtn.Text = "Check Update"
+        Me.AboutBtn.Text = "Check for Update"
         Me.AboutBtn.UseVisualStyleBackColor = True
         '
         'About

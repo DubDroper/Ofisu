@@ -35,6 +35,7 @@ Partial Class Main
         Me.MainBackgroundImg = New System.Windows.Forms.PictureBox()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.AboutBtn = New System.Windows.Forms.Button()
+        Me.DBnamelbl = New System.Windows.Forms.Label()
         CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainBackgroundImg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -152,12 +153,23 @@ Partial Class Main
         Me.AboutBtn.Text = "?"
         Me.AboutBtn.UseVisualStyleBackColor = True
         '
+        'DBnamelbl
+        '
+        Me.DBnamelbl.AutoSize = True
+        Me.DBnamelbl.ForeColor = System.Drawing.Color.White
+        Me.DBnamelbl.Location = New System.Drawing.Point(25, 700)
+        Me.DBnamelbl.Name = "DBnamelbl"
+        Me.DBnamelbl.Size = New System.Drawing.Size(10, 13)
+        Me.DBnamelbl.TabIndex = 10
+        Me.DBnamelbl.Text = " "
+        '
         'Main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1240, 720)
         Me.ControlBox = False
+        Me.Controls.Add(Me.DBnamelbl)
         Me.Controls.Add(Me.AboutBtn)
         Me.Controls.Add(Me.isMainDbOnlinePicBox)
         Me.Controls.Add(Me.MainTitle)
@@ -192,4 +204,5 @@ Partial Class Main
     Friend WithEvents isMainDbOnlinePicBox As PictureBox
     Friend WithEvents Timer3 As Timer
     Friend WithEvents AboutBtn As Button
+    Friend WithEvents DBnamelbl As Label
 End Class

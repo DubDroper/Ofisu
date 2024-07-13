@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Threading.Tasks
 Imports MySql.Data.MySqlClient
 
@@ -80,27 +81,33 @@ Public Class Main
 
     Private Async Sub CheckMySqlConnection()
         ' Construct connection string using the loaded parameters
-        Dim connectionString As String = $"Server={dbServer};Database={dbName};User Id={dbUserId};Password={dbPassword};"
+        Dim connectionString As String = $"Server={dbServer};Database={dbName};User Id={dbUserId};Password={dbPassword}"
 
         ' Attempt to connect to the MySQL database
         Using connection As New MySqlConnection(connectionString)
             Try
                 Await connection.OpenAsync()
-
-                isMainDbOnline = True
-                isMainDbOnlinePicBoxColor = True
-                Timer3.Stop()
-                isMainDbOnlinePicBox.Image = My.Resources.GreenCircle1
-
-
+                DbIsOnline()
             Catch ex As Exception
-                isMainDbOnline = False
-                isMainDbOnlinePicBoxColor = False
-                Timer3.Stop()
-                isMainDbOnlinePicBox.Image = My.Resources.RedCircle1
+                DbIsOffline()
 
             End Try
         End Using
+    End Sub
+
+    Private Sub DbIsOnline()
+        isMainDbOnline = True
+        isMainDbOnlinePicBoxColor = True
+        Timer3.Stop()
+        isMainDbOnlinePicBox.Image = My.Resources.GreenCircle1
+
+    End Sub
+
+    Private Sub DbIsOffline()
+        isMainDbOnline = False
+        isMainDbOnlinePicBoxColor = False
+        Timer3.Stop()
+        isMainDbOnlinePicBox.Image = My.Resources.RedCircle1
     End Sub
 
     ' Event handler for MouseDown
@@ -157,6 +164,11 @@ Public Class Main
         Else
             MainTitle.Text = "Ofisu"
         End If
+
+        If isMainDbOnline = True Then
+            DBnamelbl.Text = dbName & " host " & dbServer
+        Else
+        End If
     End Sub
 
     Private Sub MatBtnCloseMain_Click(sender As Object, e As EventArgs) Handles MatBtnCloseMain.Click
@@ -185,4 +197,5 @@ Public Class Main
     Private Sub AboutBtn_Click(sender As Object, e As EventArgs) Handles AboutBtn.Click
         About.Show()
     End Sub
+
 End Class
