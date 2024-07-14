@@ -62,7 +62,7 @@ Explore the features and customize your experience!
 📂 Database Schema
 Task Table
 ```sql
-      Copy code
+      
       CREATE TABLE Task (
           ID INT AUTO_INCREMENT PRIMARY KEY,
           TaskName VARCHAR(255),
@@ -77,9 +77,7 @@ Task Table
       ('Task 2', NOW(), FALSE, NULL),
       ('Task 3', NOW(), FALSE, NULL),
       -- Add more tasks as needed
-      Updates Table
-      sql
-      Copy code
+
       CREATE TABLE Updates (
           ID INT AUTO_INCREMENT PRIMARY KEY,
           Version VARCHAR(255),
@@ -91,6 +89,7 @@ Task Table
       INSERT INTO Updates (Version, DateCreated, UpdateLink) VALUES
       ('1.0.0', NOW(), 'http://yourupdate.link/update1'),
       ('1.1.0', NOW(), 'http://yourupdate.link/update2');
+
 ```
 📜 **License**
 This project is not under a license.
