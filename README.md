@@ -61,41 +61,41 @@ Explore the features and customize your experience!
 
 📂 Database Schema
 Task Table
-sql
-Copy code
-CREATE TABLE Task (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    TaskName VARCHAR(255),
-    AddedDateTime DATETIME,
-    isCompleted BOOLEAN,
-    CompletedTime DATETIME
-);
-
--- Populate with sample data
-INSERT INTO Task (TaskName, AddedDateTime, isCompleted, CompletedTime) VALUES
-('Task 1', NOW(), FALSE, NULL),
-('Task 2', NOW(), FALSE, NULL),
-('Task 3', NOW(), FALSE, NULL),
--- Add more tasks as needed
-Updates Table
-sql
-Copy code
-CREATE TABLE Updates (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Version VARCHAR(255),
-    DateCreated DATETIME,
-    UpdateLink VARCHAR(255)
-);
-
--- Populate with sample data
-INSERT INTO Updates (Version, DateCreated, UpdateLink) VALUES
-('1.0.0', NOW(), 'http://yourupdate.link/update1'),
-('1.1.0', NOW(), 'http://yourupdate.link/update2');
-
+```sql
+      Copy code
+      CREATE TABLE Task (
+          ID INT AUTO_INCREMENT PRIMARY KEY,
+          TaskName VARCHAR(255),
+          AddedDateTime DATETIME,
+          isCompleted BOOLEAN,
+          CompletedTime DATETIME
+      );
+      
+      -- Populate with sample data
+      INSERT INTO Task (TaskName, AddedDateTime, isCompleted, CompletedTime) VALUES
+      ('Task 1', NOW(), FALSE, NULL),
+      ('Task 2', NOW(), FALSE, NULL),
+      ('Task 3', NOW(), FALSE, NULL),
+      -- Add more tasks as needed
+      Updates Table
+      sql
+      Copy code
+      CREATE TABLE Updates (
+          ID INT AUTO_INCREMENT PRIMARY KEY,
+          Version VARCHAR(255),
+          DateCreated DATETIME,
+          UpdateLink VARCHAR(255)
+      );
+      
+      -- Populate with sample data
+      INSERT INTO Updates (Version, DateCreated, UpdateLink) VALUES
+      ('1.0.0', NOW(), 'http://yourupdate.link/update1'),
+      ('1.1.0', NOW(), 'http://yourupdate.link/update2');
+```
 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 📬 Contact
-For any questions or suggestions, feel free to open an issue or contact me at your.email@example.com.
+For any questions or suggestions, feel free to open an issue or contact me at idroperex@gmail.com.
 
 Ofisu - Simplify your digital workspace! 🖥️✨
