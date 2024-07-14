@@ -93,4 +93,8 @@
         Clipboard.SetText("idroperex@gmail.com")
         CopyNotifLbl.Visible = True
     End Sub
+
+    Private Sub CheckUpdateBtn_Click(sender As Object, e As EventArgs) Handles CheckUpdateBtn.Click
+
+    End Sub
 End Class

@@ -36,7 +36,7 @@ Partial Class About
         Me.CopyNotifLbl = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.VersionLbl = New System.Windows.Forms.Label()
-        Me.AboutBtn = New System.Windows.Forms.Button()
+        Me.CheckUpdateBtn = New System.Windows.Forms.Button()
         CType(Me.GitLogoPicBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -170,20 +170,20 @@ Partial Class About
         Me.VersionLbl.TabIndex = 10
         Me.VersionLbl.Text = "Version"
         '
-        'AboutBtn
+        'CheckUpdateBtn
         '
-        Me.AboutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AboutBtn.FlatAppearance.BorderSize = 3
-        Me.AboutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.AboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AboutBtn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.AboutBtn.ForeColor = System.Drawing.Color.Transparent
-        Me.AboutBtn.Location = New System.Drawing.Point(107, 285)
-        Me.AboutBtn.Name = "AboutBtn"
-        Me.AboutBtn.Size = New System.Drawing.Size(171, 36)
-        Me.AboutBtn.TabIndex = 11
-        Me.AboutBtn.Text = "Check for Update"
-        Me.AboutBtn.UseVisualStyleBackColor = True
+        Me.CheckUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.CheckUpdateBtn.FlatAppearance.BorderSize = 3
+        Me.CheckUpdateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.CheckUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckUpdateBtn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.CheckUpdateBtn.ForeColor = System.Drawing.Color.Transparent
+        Me.CheckUpdateBtn.Location = New System.Drawing.Point(107, 285)
+        Me.CheckUpdateBtn.Name = "CheckUpdateBtn"
+        Me.CheckUpdateBtn.Size = New System.Drawing.Size(171, 36)
+        Me.CheckUpdateBtn.TabIndex = 11
+        Me.CheckUpdateBtn.Text = "Check for Update"
+        Me.CheckUpdateBtn.UseVisualStyleBackColor = True
         '
         'About
         '
@@ -191,7 +191,7 @@ Partial Class About
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(384, 351)
-        Me.Controls.Add(Me.AboutBtn)
+        Me.Controls.Add(Me.CheckUpdateBtn)
         Me.Controls.Add(Me.VersionLbl)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.CopyNotifLbl)
@@ -231,5 +231,5 @@ Partial Class About
     Friend WithEvents CopyNotifLbl As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents VersionLbl As Label
-    Friend WithEvents AboutBtn As Button
+    Friend WithEvents CheckUpdateBtn As Button
 End Class

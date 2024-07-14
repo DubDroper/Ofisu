@@ -25,6 +25,16 @@ Partial Class Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MainPanel = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnDeleteTask = New System.Windows.Forms.Button()
+        Me.btnCompleteTask = New System.Windows.Forms.Button()
+        Me.TaskTxtBox = New System.Windows.Forms.TextBox()
+        Me.TaskListBox = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnAddTask = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TimeDateLbl = New System.Windows.Forms.Label()
         Me.MatBtnCloseMain = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MainProBar = New System.Windows.Forms.ProgressBar()
@@ -36,22 +46,19 @@ Partial Class Main
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.AboutBtn = New System.Windows.Forms.Button()
         Me.DBnamelbl = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TimeDateLbl = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnAddTask = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TaskListBox = New System.Windows.Forms.ListBox()
-        Me.TaskTxtBox = New System.Windows.Forms.TextBox()
-        Me.btnCompleteTask = New System.Windows.Forms.Button()
-        Me.btnDeleteTask = New System.Windows.Forms.Button()
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.CpuUsageLbl = New System.Windows.Forms.Label()
+        Me.RamUsageLbl = New System.Windows.Forms.Label()
         Me.MainPanel.SuspendLayout()
-        CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MainBackgroundImg, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MainBackgroundImg, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainPanel
@@ -60,10 +67,139 @@ Partial Class Main
         Me.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MainPanel.Controls.Add(Me.Panel3)
         Me.MainPanel.Controls.Add(Me.Panel1)
-        Me.MainPanel.Location = New System.Drawing.Point(5, 35)
+        Me.MainPanel.Controls.Add(Me.Panel5)
+        Me.MainPanel.Location = New System.Drawing.Point(5, 36)
         Me.MainPanel.Name = "MainPanel"
         Me.MainPanel.Size = New System.Drawing.Size(1230, 660)
         Me.MainPanel.TabIndex = 0
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnDeleteTask)
+        Me.Panel3.Controls.Add(Me.btnCompleteTask)
+        Me.Panel3.Controls.Add(Me.TaskTxtBox)
+        Me.Panel3.Controls.Add(Me.TaskListBox)
+        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Controls.Add(Me.btnAddTask)
+        Me.Panel3.Location = New System.Drawing.Point(6, 6)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(428, 298)
+        Me.Panel3.TabIndex = 1
+        '
+        'btnDeleteTask
+        '
+        Me.btnDeleteTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnDeleteTask.FlatAppearance.BorderSize = 3
+        Me.btnDeleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnDeleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDeleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnDeleteTask.ForeColor = System.Drawing.Color.Transparent
+        Me.btnDeleteTask.Location = New System.Drawing.Point(217, 264)
+        Me.btnDeleteTask.Name = "btnDeleteTask"
+        Me.btnDeleteTask.Size = New System.Drawing.Size(208, 31)
+        Me.btnDeleteTask.TabIndex = 17
+        Me.btnDeleteTask.Text = "Delete Task"
+        Me.btnDeleteTask.UseVisualStyleBackColor = True
+        '
+        'btnCompleteTask
+        '
+        Me.btnCompleteTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnCompleteTask.FlatAppearance.BorderSize = 3
+        Me.btnCompleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnCompleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnCompleteTask.ForeColor = System.Drawing.Color.Transparent
+        Me.btnCompleteTask.Location = New System.Drawing.Point(3, 264)
+        Me.btnCompleteTask.Name = "btnCompleteTask"
+        Me.btnCompleteTask.Size = New System.Drawing.Size(208, 31)
+        Me.btnCompleteTask.TabIndex = 16
+        Me.btnCompleteTask.Text = "Complete Task"
+        Me.btnCompleteTask.UseVisualStyleBackColor = True
+        '
+        'TaskTxtBox
+        '
+        Me.TaskTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TaskTxtBox.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskTxtBox.ForeColor = System.Drawing.Color.White
+        Me.TaskTxtBox.Location = New System.Drawing.Point(63, 5)
+        Me.TaskTxtBox.MaxLength = 128
+        Me.TaskTxtBox.Multiline = True
+        Me.TaskTxtBox.Name = "TaskTxtBox"
+        Me.TaskTxtBox.Size = New System.Drawing.Size(322, 31)
+        Me.TaskTxtBox.TabIndex = 15
+        Me.TaskTxtBox.Text = "...Add new task here..."
+        Me.TaskTxtBox.WordWrap = False
+        '
+        'TaskListBox
+        '
+        Me.TaskListBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TaskListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TaskListBox.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.TaskListBox.Font = New System.Drawing.Font("Roboto", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskListBox.ForeColor = System.Drawing.Color.White
+        Me.TaskListBox.FormattingEnabled = True
+        Me.TaskListBox.HorizontalScrollbar = True
+        Me.TaskListBox.ItemHeight = 20
+        Me.TaskListBox.Location = New System.Drawing.Point(3, 40)
+        Me.TaskListBox.Name = "TaskListBox"
+        Me.TaskListBox.Size = New System.Drawing.Size(422, 222)
+        Me.TaskListBox.TabIndex = 14
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(6, 10)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 19)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "ToDo:"
+        '
+        'btnAddTask
+        '
+        Me.btnAddTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnAddTask.FlatAppearance.BorderSize = 3
+        Me.btnAddTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAddTask.ForeColor = System.Drawing.Color.Transparent
+        Me.btnAddTask.Location = New System.Drawing.Point(391, 5)
+        Me.btnAddTask.Name = "btnAddTask"
+        Me.btnAddTask.Size = New System.Drawing.Size(34, 31)
+        Me.btnAddTask.TabIndex = 12
+        Me.btnAddTask.Text = "+"
+        Me.btnAddTask.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Location = New System.Drawing.Point(1054, -4)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(164, 49)
+        Me.Panel1.TabIndex = 0
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.TimeDateLbl)
+        Me.Panel2.Location = New System.Drawing.Point(3, -8)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(158, 54)
+        Me.Panel2.TabIndex = 1
+        '
+        'TimeDateLbl
+        '
+        Me.TimeDateLbl.AutoSize = True
+        Me.TimeDateLbl.Font = New System.Drawing.Font("Roboto Lt", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TimeDateLbl.ForeColor = System.Drawing.Color.White
+        Me.TimeDateLbl.Location = New System.Drawing.Point(-1, 26)
+        Me.TimeDateLbl.Name = "TimeDateLbl"
+        Me.TimeDateLbl.Size = New System.Drawing.Size(162, 17)
+        Me.TimeDateLbl.TabIndex = 0
+        Me.TimeDateLbl.Text = "00-00-0000 00:00:00"
         '
         'MatBtnCloseMain
         '
@@ -110,7 +246,7 @@ Partial Class Main
         'Timer2
         '
         Me.Timer2.Enabled = True
-        Me.Timer2.Interval = 600
+        Me.Timer2.Interval = 1000
         '
         'MainTitle
         '
@@ -180,132 +316,50 @@ Partial Class Main
         Me.DBnamelbl.TabIndex = 10
         Me.DBnamelbl.Text = " "
         '
-        'Panel1
+        'Timer4
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(1054, -4)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(164, 49)
-        Me.Panel1.TabIndex = 0
+        Me.Timer4.Interval = 1000
         '
-        'TimeDateLbl
+        'Panel4
         '
-        Me.TimeDateLbl.AutoSize = True
-        Me.TimeDateLbl.Font = New System.Drawing.Font("Roboto Lt", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TimeDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TimeDateLbl.Location = New System.Drawing.Point(-1, 26)
-        Me.TimeDateLbl.Name = "TimeDateLbl"
-        Me.TimeDateLbl.Size = New System.Drawing.Size(162, 17)
-        Me.TimeDateLbl.TabIndex = 0
-        Me.TimeDateLbl.Text = "00-00-0000 00:00:00"
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.RamUsageLbl)
+        Me.Panel4.Controls.Add(Me.CpuUsageLbl)
+        Me.Panel4.Location = New System.Drawing.Point(3, 3)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(151, 68)
+        Me.Panel4.TabIndex = 1
         '
-        'Panel2
+        'Panel5
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.TimeDateLbl)
-        Me.Panel2.Location = New System.Drawing.Point(3, -8)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(158, 54)
-        Me.Panel2.TabIndex = 1
+        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.Panel4)
+        Me.Panel5.Location = New System.Drawing.Point(1058, 36)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(157, 75)
+        Me.Panel5.TabIndex = 2
         '
-        'Panel3
+        'CpuUsageLbl
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.btnDeleteTask)
-        Me.Panel3.Controls.Add(Me.btnCompleteTask)
-        Me.Panel3.Controls.Add(Me.TaskTxtBox)
-        Me.Panel3.Controls.Add(Me.TaskListBox)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.btnAddTask)
-        Me.Panel3.Location = New System.Drawing.Point(6, 6)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(531, 300)
-        Me.Panel3.TabIndex = 1
+        Me.CpuUsageLbl.AutoSize = True
+        Me.CpuUsageLbl.Font = New System.Drawing.Font("Roboto Lt", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CpuUsageLbl.ForeColor = System.Drawing.Color.White
+        Me.CpuUsageLbl.Location = New System.Drawing.Point(3, 15)
+        Me.CpuUsageLbl.Name = "CpuUsageLbl"
+        Me.CpuUsageLbl.Size = New System.Drawing.Size(75, 17)
+        Me.CpuUsageLbl.TabIndex = 1
+        Me.CpuUsageLbl.Text = "Cpu Usage"
         '
-        'btnAddTask
+        'RamUsageLbl
         '
-        Me.btnAddTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnAddTask.FlatAppearance.BorderSize = 3
-        Me.btnAddTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAddTask.ForeColor = System.Drawing.Color.Transparent
-        Me.btnAddTask.Location = New System.Drawing.Point(415, 5)
-        Me.btnAddTask.Name = "btnAddTask"
-        Me.btnAddTask.Size = New System.Drawing.Size(113, 31)
-        Me.btnAddTask.TabIndex = 12
-        Me.btnAddTask.Text = "Add Task"
-        Me.btnAddTask.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(6, 10)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 19)
-        Me.Label1.TabIndex = 13
-        Me.Label1.Text = "ToDo:"
-        '
-        'TaskListBox
-        '
-        Me.TaskListBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TaskListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TaskListBox.Font = New System.Drawing.Font("Roboto", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskListBox.ForeColor = System.Drawing.Color.White
-        Me.TaskListBox.FormattingEnabled = True
-        Me.TaskListBox.ItemHeight = 15
-        Me.TaskListBox.Items.AddRange(New Object() {"TASK 1", "TASK 10", "TASK 11", "TASK 2", "TASK 3", "TASK 4", "TASK 5", "TASK 6", "TASK 7", "TASK 8", "TASK 9"})
-        Me.TaskListBox.Location = New System.Drawing.Point(3, 42)
-        Me.TaskListBox.Name = "TaskListBox"
-        Me.TaskListBox.Size = New System.Drawing.Size(525, 212)
-        Me.TaskListBox.TabIndex = 14
-        '
-        'TaskTxtBox
-        '
-        Me.TaskTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TaskTxtBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TaskTxtBox.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskTxtBox.ForeColor = System.Drawing.Color.White
-        Me.TaskTxtBox.Location = New System.Drawing.Point(63, 5)
-        Me.TaskTxtBox.MaxLength = 128
-        Me.TaskTxtBox.Multiline = True
-        Me.TaskTxtBox.Name = "TaskTxtBox"
-        Me.TaskTxtBox.Size = New System.Drawing.Size(346, 31)
-        Me.TaskTxtBox.TabIndex = 15
-        Me.TaskTxtBox.WordWrap = False
-        '
-        'btnCompleteTask
-        '
-        Me.btnCompleteTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnCompleteTask.FlatAppearance.BorderSize = 3
-        Me.btnCompleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnCompleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCompleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnCompleteTask.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCompleteTask.Location = New System.Drawing.Point(8, 260)
-        Me.btnCompleteTask.Name = "btnCompleteTask"
-        Me.btnCompleteTask.Size = New System.Drawing.Size(253, 31)
-        Me.btnCompleteTask.TabIndex = 16
-        Me.btnCompleteTask.Text = "Complete Task"
-        Me.btnCompleteTask.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTask
-        '
-        Me.btnDeleteTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnDeleteTask.FlatAppearance.BorderSize = 3
-        Me.btnDeleteTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.btnDeleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnDeleteTask.ForeColor = System.Drawing.Color.Transparent
-        Me.btnDeleteTask.Location = New System.Drawing.Point(270, 260)
-        Me.btnDeleteTask.Name = "btnDeleteTask"
-        Me.btnDeleteTask.Size = New System.Drawing.Size(253, 31)
-        Me.btnDeleteTask.TabIndex = 17
-        Me.btnDeleteTask.Text = "Delete Task"
-        Me.btnDeleteTask.UseVisualStyleBackColor = True
+        Me.RamUsageLbl.AutoSize = True
+        Me.RamUsageLbl.Font = New System.Drawing.Font("Roboto Lt", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RamUsageLbl.ForeColor = System.Drawing.Color.White
+        Me.RamUsageLbl.Location = New System.Drawing.Point(3, 42)
+        Me.RamUsageLbl.Name = "RamUsageLbl"
+        Me.RamUsageLbl.Size = New System.Drawing.Size(79, 17)
+        Me.RamUsageLbl.TabIndex = 2
+        Me.RamUsageLbl.Text = "Ram Usage"
         '
         'Main
         '
@@ -331,13 +385,16 @@ Partial Class Main
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ofisu"
         Me.MainPanel.ResumeLayout(False)
-        CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MainBackgroundImg, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MainBackgroundImg, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -365,4 +422,9 @@ Partial Class Main
     Friend WithEvents btnDeleteTask As Button
     Friend WithEvents btnCompleteTask As Button
     Friend WithEvents TaskTxtBox As TextBox
+    Friend WithEvents Timer4 As Timer
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents CpuUsageLbl As Label
+    Friend WithEvents RamUsageLbl As Label
 End Class
