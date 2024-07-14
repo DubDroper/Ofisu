@@ -49,13 +49,10 @@ To install and run **Ofisu**, follow these steps:
    ```bash
    git clone https://github.com/yourusername/Ofisu.git
 Navigate to the project directory:
-bash
-Copy code
-cd Ofisu
 Open the project in Visual Studio 2022.
 
 🔧 Usage
-Configure your MySQL database parameters in the Ofisu_Config.ini file.
+Configure your MySQL database parameters in the *Ofisu_Config.ini* file.
 Build and run the application using Visual Studio 2022.
 Explore the features and customize your experience!
 
