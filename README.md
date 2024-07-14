@@ -1,4 +1,4 @@
-# 🖥️✨ **Ofisu** 🖥️✨
+# ✨🖥️ **Ofisu** 🖥️✨
 Ofisu | Your humble everyday assistant! 🖥️✨
 
 Welcome to **Ofisu**! This application is designed to streamline your daily tasks, manage resources, and provide various utilities, all in one place.
@@ -39,8 +39,7 @@ Welcome to **Ofisu**! This application is designed to streamline your daily task
 10. **YouTube Music Player**
 11. **Double Buffering**
 12. **Detection of All Open Ports**
-13. **Emergency 'AirPlane' Mode**
-   - Deactivate all network cards.
+13. **Emergency 'AirPlane' Mode** Deactivate all network cards.
 
 ## 📦 **Installation**
 
@@ -54,10 +53,12 @@ bash
 Copy code
 cd Ofisu
 Open the project in Visual Studio 2022.
+
 🔧 Usage
 Configure your MySQL database parameters in the Ofisu_Config.ini file.
 Build and run the application using Visual Studio 2022.
 Explore the features and customize your experience!
+
 📂 Database Schema
 Task Table
 sql
@@ -90,6 +91,7 @@ CREATE TABLE Updates (
 INSERT INTO Updates (Version, DateCreated, UpdateLink) VALUES
 ('1.0.0', NOW(), 'http://yourupdate.link/update1'),
 ('1.1.0', NOW(), 'http://yourupdate.link/update2');
+
 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
