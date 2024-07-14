@@ -93,7 +93,7 @@ Task Table
       ('1.1.0', NOW(), 'http://yourupdate.link/update2');
 ```
 📜 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is not under a license.
 
 📬 Contact
 For any questions or suggestions, feel free to open an issue or contact me at idroperex@gmail.com.
