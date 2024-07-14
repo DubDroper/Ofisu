@@ -1,14 +1,9 @@
-# Ofisu
+# 🖥️✨ **Ofisu** 🖥️✨
 Ofisu | Your humble everyday assistant! 🖥️✨
 
+Welcome to **Ofisu**! This application is designed to streamline your daily tasks, manage resources, and provide various utilities, all in one place.
 
 ![image](https://github.com/user-attachments/assets/be65617d-3d1d-4857-9113-d309128c37c5)
-
-# 🎨 **Ofisu** 🎨
-
-Welcome to **Ofisu**! This application is designed to streamline your daily tasks, manage resources, and provide various utilities, all in one place. 
-
-![Ofisu Logo](https://yourlogo.url/logo.png)
 
 ## ✨ **Features** ✨
 
