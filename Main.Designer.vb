@@ -37,6 +37,9 @@ Partial Class Main
         Me.MainProBar = New System.Windows.Forms.ProgressBar()
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ShowCompletedRadio = New System.Windows.Forms.RadioButton()
+        Me.ShowUnCompRadio = New System.Windows.Forms.RadioButton()
+        Me.ShowAllRadio = New System.Windows.Forms.RadioButton()
         Me.TaskCompleteDateLbl = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TaskCreatedDateLbl = New System.Windows.Forms.Label()
@@ -186,6 +189,9 @@ Partial Class Main
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.ShowCompletedRadio)
+        Me.Panel3.Controls.Add(Me.ShowUnCompRadio)
+        Me.Panel3.Controls.Add(Me.ShowAllRadio)
         Me.Panel3.Controls.Add(Me.TaskCompleteDateLbl)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.TaskCreatedDateLbl)
@@ -201,12 +207,53 @@ Partial Class Main
         Me.Panel3.Size = New System.Drawing.Size(508, 298)
         Me.Panel3.TabIndex = 1
         '
+        'ShowCompletedRadio
+        '
+        Me.ShowCompletedRadio.AutoSize = True
+        Me.ShowCompletedRadio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowCompletedRadio.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ShowCompletedRadio.ForeColor = System.Drawing.Color.White
+        Me.ShowCompletedRadio.Location = New System.Drawing.Point(325, 113)
+        Me.ShowCompletedRadio.Name = "ShowCompletedRadio"
+        Me.ShowCompletedRadio.Size = New System.Drawing.Size(153, 23)
+        Me.ShowCompletedRadio.TabIndex = 24
+        Me.ShowCompletedRadio.Text = "Show Completed"
+        Me.ShowCompletedRadio.UseVisualStyleBackColor = True
+        '
+        'ShowUnCompRadio
+        '
+        Me.ShowUnCompRadio.AutoSize = True
+        Me.ShowUnCompRadio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowUnCompRadio.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ShowUnCompRadio.ForeColor = System.Drawing.Color.White
+        Me.ShowUnCompRadio.Location = New System.Drawing.Point(325, 84)
+        Me.ShowUnCompRadio.Name = "ShowUnCompRadio"
+        Me.ShowUnCompRadio.Size = New System.Drawing.Size(162, 23)
+        Me.ShowUnCompRadio.TabIndex = 23
+        Me.ShowUnCompRadio.Text = "Show Uncomplete"
+        Me.ShowUnCompRadio.UseVisualStyleBackColor = True
+        '
+        'ShowAllRadio
+        '
+        Me.ShowAllRadio.AutoSize = True
+        Me.ShowAllRadio.Checked = True
+        Me.ShowAllRadio.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowAllRadio.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.ShowAllRadio.ForeColor = System.Drawing.Color.White
+        Me.ShowAllRadio.Location = New System.Drawing.Point(325, 55)
+        Me.ShowAllRadio.Name = "ShowAllRadio"
+        Me.ShowAllRadio.Size = New System.Drawing.Size(99, 23)
+        Me.ShowAllRadio.TabIndex = 22
+        Me.ShowAllRadio.TabStop = True
+        Me.ShowAllRadio.Text = "Show All"
+        Me.ShowAllRadio.UseVisualStyleBackColor = True
+        '
         'TaskCompleteDateLbl
         '
         Me.TaskCompleteDateLbl.AutoSize = True
         Me.TaskCompleteDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.TaskCompleteDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(321, 133)
+        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(321, 222)
         Me.TaskCompleteDateLbl.Name = "TaskCompleteDateLbl"
         Me.TaskCompleteDateLbl.Size = New System.Drawing.Size(180, 19)
         Me.TaskCompleteDateLbl.TabIndex = 21
@@ -217,7 +264,7 @@ Partial Class Main
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(321, 109)
+        Me.Label4.Location = New System.Drawing.Point(321, 203)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(126, 19)
         Me.Label4.TabIndex = 20
@@ -228,7 +275,7 @@ Partial Class Main
         Me.TaskCreatedDateLbl.AutoSize = True
         Me.TaskCreatedDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.TaskCreatedDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(321, 69)
+        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(321, 171)
         Me.TaskCreatedDateLbl.Name = "TaskCreatedDateLbl"
         Me.TaskCreatedDateLbl.Size = New System.Drawing.Size(180, 19)
         Me.TaskCreatedDateLbl.TabIndex = 19
@@ -239,7 +286,7 @@ Partial Class Main
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(321, 45)
+        Me.Label2.Location = New System.Drawing.Point(321, 152)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 19)
         Me.Label2.TabIndex = 18
@@ -253,7 +300,7 @@ Partial Class Main
         Me.btnDeleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDeleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btnDeleteTask.ForeColor = System.Drawing.Color.Transparent
-        Me.btnDeleteTask.Location = New System.Drawing.Point(162, 264)
+        Me.btnDeleteTask.Location = New System.Drawing.Point(162, 262)
         Me.btnDeleteTask.Name = "btnDeleteTask"
         Me.btnDeleteTask.Size = New System.Drawing.Size(153, 31)
         Me.btnDeleteTask.TabIndex = 17
@@ -268,7 +315,7 @@ Partial Class Main
         Me.btnCompleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCompleteTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btnCompleteTask.ForeColor = System.Drawing.Color.Transparent
-        Me.btnCompleteTask.Location = New System.Drawing.Point(3, 264)
+        Me.btnCompleteTask.Location = New System.Drawing.Point(3, 262)
         Me.btnCompleteTask.Name = "btnCompleteTask"
         Me.btnCompleteTask.Size = New System.Drawing.Size(153, 31)
         Me.btnCompleteTask.TabIndex = 16
@@ -294,14 +341,14 @@ Partial Class Main
         Me.TaskListBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TaskListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TaskListBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.TaskListBox.Font = New System.Drawing.Font("Roboto", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskListBox.Font = New System.Drawing.Font("Roboto", 11.0!)
         Me.TaskListBox.ForeColor = System.Drawing.Color.White
         Me.TaskListBox.FormattingEnabled = True
         Me.TaskListBox.HorizontalScrollbar = True
-        Me.TaskListBox.ItemHeight = 20
+        Me.TaskListBox.ItemHeight = 18
         Me.TaskListBox.Location = New System.Drawing.Point(3, 40)
         Me.TaskListBox.Name = "TaskListBox"
-        Me.TaskListBox.Size = New System.Drawing.Size(312, 222)
+        Me.TaskListBox.Size = New System.Drawing.Size(312, 218)
         Me.TaskListBox.TabIndex = 14
         '
         'Label1
@@ -483,4 +530,7 @@ Partial Class Main
     Friend WithEvents Label4 As Label
     Friend WithEvents TaskCreatedDateLbl As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents ShowCompletedRadio As RadioButton
+    Friend WithEvents ShowUnCompRadio As RadioButton
+    Friend WithEvents ShowAllRadio As RadioButton
 End Class

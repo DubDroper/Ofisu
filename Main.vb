@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
+Imports System.ComponentModel
 
 Public Class Main
     Inherits RoundedForm
@@ -7,9 +8,10 @@ Public Class Main
     Private isDragging As Boolean
     Private clickOffset As Point
     Private configFilePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Ofisu_Config.ini")
-    Private isMainDbOnline As Boolean
+    Private isMainDbOnline As Boolean = False
     Private isMainDbOnlinePicBoxColor As Boolean
     Private isTasksFetched As Boolean
+    Private checkedState As String = "All"
 
     ' MySQL connection parameters
     Private dbServer As String
@@ -19,12 +21,14 @@ Public Class Main
 
     Private connectionString As String
 
-    'Performance Counters
+    ' Performance Counters
     Private performanceCounterCPU As PerformanceCounter
     Private performanceCounterRAM As PerformanceCounter
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    ' BackgroundWorker for MySQL connection check
+    Private WithEvents backgroundWorker As New BackgroundWorker
 
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeRessourceCounters()
 
         isMainDbOnlinePicBoxColor = False
@@ -44,16 +48,16 @@ Public Class Main
         AddHandler MainBackgroundImg.MouseMove, AddressOf MainBackgroundImg_MouseMove
         AddHandler MainBackgroundImg.MouseUp, AddressOf MainBackgroundImg_MouseUp
 
+
+
+        ' Configure BackgroundWorker
+        backgroundWorker.WorkerSupportsCancellation = True
+
         ' Start the MySQL connection check in the background
-        'Task.Run(AddressOf CheckMySqlConnection)
-        CheckMySqlConnection()
-
-
-
+        backgroundWorker.RunWorkerAsync()
     End Sub
 
     Friend Sub InitializeRessourceCounters()
-
         ' Initialize PerformanceCounters
         performanceCounterCPU = New PerformanceCounter("Processor", "% Processor Time", "_Total")
         performanceCounterRAM = New PerformanceCounter("Memory", "% Committed Bytes In Use")
@@ -74,24 +78,38 @@ Public Class Main
         Timer4.Start()
     End Sub
 
+    Private taskDictionary As New Dictionary(Of String, (AddedDateTime As DateTime, CompletedTime As DateTime))
+
     Private Sub FetchTasks()
         TaskListBox.Items.Clear()
+        taskDictionary.Clear() ' Clear the dictionary before populating it again
         Using connection As New MySqlConnection(connectionString)
             connection.Open()
-            Dim query As String = "SELECT ID, TaskName, isCompleted FROM Task"
+            Dim query As String = "SELECT ID, TaskName, isCompleted, AddedDateTime, CompletedTime FROM Task"
+
+            ' Adjust the query based on the filter
+            If checkedState = "Uncompleted" Then
+                query &= " WHERE isCompleted = FALSE"
+            ElseIf checkedState = "Completed" Then
+                query &= " WHERE isCompleted = TRUE"
+            End If
+
             Using cmd As New MySqlCommand(query, connection)
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     While reader.Read()
                         Dim taskName As String = reader.GetString("TaskName")
                         Dim isCompleted As Boolean = reader.GetBoolean("isCompleted")
+                        Dim addedDateTime As DateTime = reader.GetDateTime("AddedDateTime")
+                        Dim completedDateTime As DateTime = If(reader.IsDBNull(reader.GetOrdinal("CompletedTime")), DateTime.MinValue, reader.GetDateTime("CompletedTime"))
                         Dim taskText As String = If(isCompleted, "[Complete] ", "") & taskName
+
                         TaskListBox.Items.Add(taskText)
+                        taskDictionary(taskName) = (addedDateTime, completedDateTime) ' Store task details in the dictionary
                     End While
                 End Using
             End Using
         End Using
     End Sub
-
 
     Private Sub UpdateDateTimeLabel()
         ' Get the current date and time
@@ -99,10 +117,7 @@ Public Class Main
 
         ' Set the label's text to the current date and time
         TimeDateLbl.Text = currentDateTime
-
     End Sub
-
-
 
     Private Sub CheckAndCreateConfigFile()
         If Not File.Exists(configFilePath) Then
@@ -143,18 +158,34 @@ Public Class Main
         Next
     End Sub
 
-    Private Async Sub CheckMySqlConnection()
+    ' BackgroundWorker DoWork event handler
+    Private Sub backgroundWorker_DoWork(sender As Object, e As DoWorkEventArgs) Handles backgroundWorker.DoWork
+        CheckMySqlConnection()
+    End Sub
+
+    ' BackgroundWorker RunWorkerCompleted event handler
+    Private Sub backgroundWorker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles backgroundWorker.RunWorkerCompleted
+        If e.Error IsNot Nothing Then
+            DbIsOffline()
+        ElseIf isMainDbOnline Then
+            DbIsOnline()
+        Else
+            DbIsOffline()
+        End If
+    End Sub
+
+    ' Background method to check MySQL connection
+    Private Sub CheckMySqlConnection()
         ' Construct connection string using the loaded parameters
         Dim connectionString As String = $"Server={dbServer};Database={dbName};User Id={dbUserId};Password={dbPassword}"
 
         ' Attempt to connect to the MySQL database
         Using connection As New MySqlConnection(connectionString)
             Try
-                Await connection.OpenAsync()
-                DbIsOnline()
+                connection.Open()
+                isMainDbOnline = True
             Catch ex As Exception
-                DbIsOffline()
-
+                isMainDbOnline = False
             End Try
         End Using
     End Sub
@@ -164,8 +195,6 @@ Public Class Main
         isMainDbOnlinePicBoxColor = True
         Timer3.Stop()
         isMainDbOnlinePicBox.Image = My.Resources.GreenCircle1
-
-
     End Sub
 
     Private Sub DbIsOffline()
@@ -224,7 +253,6 @@ Public Class Main
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-
         UpdateDateTimeLabel()
 
         If MainTitle.Text = "Ofisu" Then
@@ -239,11 +267,7 @@ Public Class Main
             If isTasksFetched = False Then
                 FetchTasks()
                 isTasksFetched = True
-            Else
-
             End If
-
-        Else
         End If
     End Sub
 
@@ -253,21 +277,16 @@ Public Class Main
 
     Private Sub MatBtnMinMain_Click(sender As Object, e As EventArgs) Handles MatBtnMinMain.Click
         Me.WindowState = FormWindowState.Minimized
-
     End Sub
 
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-
         If isMainDbOnlinePicBoxColor = True Then
-
             isMainDbOnlinePicBox.Image = My.Resources.RedCircle1
             isMainDbOnlinePicBoxColor = False
         Else
-
             isMainDbOnlinePicBox.Image = My.Resources.GreenCircle1
             isMainDbOnlinePicBoxColor = True
         End If
-
     End Sub
 
     Private Sub AboutBtn_Click(sender As Object, e As EventArgs) Handles AboutBtn.Click
@@ -275,7 +294,6 @@ Public Class Main
     End Sub
 
     Private Sub btnAddTask_Click(sender As Object, e As EventArgs) Handles btnAddTask.Click
-
         If TaskTxtBox.Text <> "...Add new task here..." Then
             Dim task As String = TaskTxtBox.Text
 
@@ -283,29 +301,16 @@ Public Class Main
                 TaskListBox.Items.Add(task)
                 TaskTxtBox.Clear()
             End If
-
-        Else
-
         End If
-
     End Sub
 
     Private Sub btnCompleteTask_Click(sender As Object, e As EventArgs) Handles btnCompleteTask.Click
-
         If TaskListBox.SelectedItem IsNot Nothing Then
             Dim taskText As String = TaskListBox.SelectedItem.ToString()
             Dim taskName As String = taskText.Replace("[Complete] ", "")
             MarkTaskAsCompleted(taskName)
             FetchTasks()
         End If
-
-        'Dim item As String
-        'item = TaskListBox.SelectedItem
-
-        'TaskListBox.Items.Remove(item)
-        'TaskListBox.Items.Add("[Complete] " & item)
-
-
     End Sub
 
     Private Sub MarkTaskAsCompleted(taskName As String)
@@ -321,18 +326,12 @@ Public Class Main
     End Sub
 
     Private Sub btnDeleteTask_Click(sender As Object, e As EventArgs) Handles btnDeleteTask.Click
-
         If TaskListBox.SelectedItem IsNot Nothing Then
             Dim taskText As String = TaskListBox.SelectedItem.ToString()
             Dim taskName As String = taskText.Replace("[Complete] ", "")
             DeleteTask(taskName)
-            FetchTasks()
+
         End If
-
-        'While TaskListBox.SelectedItems.Count > 0
-        '    TaskListBox.Items.Remove(TaskListBox.SelectedItem)
-        'End While
-
     End Sub
 
     Private Sub DeleteTask(taskName As String)
@@ -348,16 +347,12 @@ Public Class Main
 
     Private Sub TaskTxtBox_Click(sender As Object, e As EventArgs) Handles TaskTxtBox.Click
         If TaskTxtBox.Text = "" Then
-
         ElseIf TaskTxtBox.Text = "...Add new task here..." Then
-
             TaskTxtBox.Clear()
-
         End If
     End Sub
 
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
-
         ' Update CPU and RAM usage
         Dim cpuUsage As Single = performanceCounterCPU.NextValue()
         Dim formattedCpuUsage As String = cpuUsage.ToString("00.00") & "%"
@@ -370,6 +365,50 @@ Public Class Main
 
         CpuUsageLbl.Text = "CPU Usage: " & formattedCpuUsage
         RamUsageLbl.Text = "RAM Usage: " & formattedRamUsage
+    End Sub
+
+    Private Sub TaskListBox_MouseClick(sender As Object, e As MouseEventArgs) Handles TaskListBox.MouseClick
+
+        ' Show details of the selected task
+        If TaskListBox.SelectedItem IsNot Nothing Then
+            Dim selectedTaskText As String = TaskListBox.SelectedItem.ToString()
+            Dim selectedTaskName As String = selectedTaskText.Replace("[Complete] ", "")
+
+            If taskDictionary.ContainsKey(selectedTaskName) Then
+                Dim taskDetails = taskDictionary(selectedTaskName)
+                Dim addedDateTime As DateTime = taskDetails.AddedDateTime
+                Dim completedDateTime As DateTime = taskDetails.CompletedTime
+
+                ' Display the details in labels or any other UI elements
+                TaskCreatedDateLbl.Text = addedDateTime.ToString("dd-MM-yyyy HH:mm:ss")
+                TaskCompleteDateLbl.Text = If(completedDateTime = DateTime.MinValue, "Not yet.", completedDateTime.ToString("dd-MM-yyyy HH:mm:ss"))
+            End If
+        End If
 
     End Sub
+
+    Private Sub ShowAllRadio_Click(sender As Object, e As EventArgs) Handles ShowAllRadio.Click
+        If ShowAllRadio.Checked Then
+            checkedState = "All"
+            FetchTasks()
+
+        End If
+    End Sub
+
+    Private Sub ShowUnCompRadio_Click(sender As Object, e As EventArgs) Handles ShowUnCompRadio.Click
+        If ShowUnCompRadio.Checked Then
+            checkedState = "Uncompleted"
+            FetchTasks()
+
+        End If
+    End Sub
+
+    Private Sub ShowCompletedRadio_Click(sender As Object, e As EventArgs) Handles ShowCompletedRadio.Click
+        If ShowCompletedRadio.Checked Then
+            checkedState = "Completed"
+            FetchTasks()
+
+        End If
+    End Sub
+
 End Class
