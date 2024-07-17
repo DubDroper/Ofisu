@@ -44,3 +44,22 @@ F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.vbproj.
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.exe
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.xml
 F:\Visual Studio\Projects\Visual Basic\Ofisu\Ofisu\Ofisu\obj\Debug\Ofisu.pdb
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\Ofisu.exe.config
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\Ofisu.exe
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\Ofisu.pdb
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\Ofisu.xml
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\System.Buffers.dll
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\System.Memory.dll
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\System.Numerics.Vectors.dll
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.vbproj.AssemblyReference.cache
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.About.resources
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.Main.resources
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.Resources.resources
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.vbproj.GenerateResource.cache
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.vbproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.vbproj.Up2Date
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.exe
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.xml
+D:\Visual Studio Projects\Visual Basic\Projects\Ofisu\obj\Debug\Ofisu.pdb
