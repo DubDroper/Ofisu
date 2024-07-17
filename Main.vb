@@ -295,13 +295,31 @@ Public Class Main
 
     Private Sub btnAddTask_Click(sender As Object, e As EventArgs) Handles btnAddTask.Click
         If TaskTxtBox.Text <> "...Add new task here..." Then
-            Dim task As String = TaskTxtBox.Text
+            Dim task As String = TaskTxtBox.Text.Trim()
 
             If Not String.IsNullOrWhiteSpace(task) Then
-                TaskListBox.Items.Add(task)
+                ' Add task to database
+                AddTaskToDatabase(task)
+
+                ' Clear the textbox after adding task
                 TaskTxtBox.Clear()
+
+                ' Fetch tasks again to update the list
+                FetchTasks()
             End If
         End If
+    End Sub
+
+    Private Sub AddTaskToDatabase(taskName As String)
+        Using connection As New MySqlConnection(connectionString)
+            connection.Open()
+            Dim query As String = "INSERT INTO Task (TaskName, isCompleted, AddedDateTime) VALUES (@TaskName, FALSE, @AddedDateTime)"
+            Using cmd As New MySqlCommand(query, connection)
+                cmd.Parameters.AddWithValue("@TaskName", taskName)
+                cmd.Parameters.AddWithValue("@AddedDateTime", DateTime.Now)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
     End Sub
 
     Private Sub btnCompleteTask_Click(sender As Object, e As EventArgs) Handles btnCompleteTask.Click
