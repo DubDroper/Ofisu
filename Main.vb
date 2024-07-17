@@ -1,8 +1,5 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
-Imports Org.BouncyCastle.Tsp
-Imports System.Diagnostics
-Imports System.Management
 
 Public Class Main
     Inherits RoundedForm

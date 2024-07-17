@@ -37,6 +37,10 @@ Partial Class Main
         Me.MainProBar = New System.Windows.Forms.ProgressBar()
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TaskCompleteDateLbl = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TaskCreatedDateLbl = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnDeleteTask = New System.Windows.Forms.Button()
         Me.btnCompleteTask = New System.Windows.Forms.Button()
         Me.TaskTxtBox = New System.Windows.Forms.TextBox()
@@ -51,10 +55,6 @@ Partial Class Main
         Me.RamUsageLbl = New System.Windows.Forms.Label()
         Me.CpuUsageLbl = New System.Windows.Forms.Label()
         Me.MainBackgroundImg = New System.Windows.Forms.PictureBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TaskCreatedDateLbl = New System.Windows.Forms.Label()
-        Me.TaskCompleteDateLbl = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -198,8 +198,52 @@ Partial Class Main
         Me.Panel3.Controls.Add(Me.btnAddTask)
         Me.Panel3.Location = New System.Drawing.Point(6, 6)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(515, 298)
+        Me.Panel3.Size = New System.Drawing.Size(508, 298)
         Me.Panel3.TabIndex = 1
+        '
+        'TaskCompleteDateLbl
+        '
+        Me.TaskCompleteDateLbl.AutoSize = True
+        Me.TaskCompleteDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskCompleteDateLbl.ForeColor = System.Drawing.Color.White
+        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(321, 133)
+        Me.TaskCompleteDateLbl.Name = "TaskCompleteDateLbl"
+        Me.TaskCompleteDateLbl.Size = New System.Drawing.Size(180, 19)
+        Me.TaskCompleteDateLbl.TabIndex = 21
+        Me.TaskCompleteDateLbl.Text = "00-00-0000 00:00:00"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(321, 109)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(126, 19)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "Completed on:"
+        '
+        'TaskCreatedDateLbl
+        '
+        Me.TaskCreatedDateLbl.AutoSize = True
+        Me.TaskCreatedDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskCreatedDateLbl.ForeColor = System.Drawing.Color.White
+        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(321, 69)
+        Me.TaskCreatedDateLbl.Name = "TaskCreatedDateLbl"
+        Me.TaskCreatedDateLbl.Size = New System.Drawing.Size(180, 19)
+        Me.TaskCreatedDateLbl.TabIndex = 19
+        Me.TaskCreatedDateLbl.Text = "00-00-0000 00:00:00"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(321, 45)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(108, 19)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Created on:"
         '
         'btnDeleteTask
         '
@@ -368,50 +412,6 @@ Partial Class Main
         Me.MainBackgroundImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.MainBackgroundImg.TabIndex = 0
         Me.MainBackgroundImg.TabStop = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(321, 45)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 19)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Created on:"
-        '
-        'TaskCreatedDateLbl
-        '
-        Me.TaskCreatedDateLbl.AutoSize = True
-        Me.TaskCreatedDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskCreatedDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(321, 69)
-        Me.TaskCreatedDateLbl.Name = "TaskCreatedDateLbl"
-        Me.TaskCreatedDateLbl.Size = New System.Drawing.Size(180, 19)
-        Me.TaskCreatedDateLbl.TabIndex = 19
-        Me.TaskCreatedDateLbl.Text = "00-00-0000 00:00:00"
-        '
-        'TaskCompleteDateLbl
-        '
-        Me.TaskCompleteDateLbl.AutoSize = True
-        Me.TaskCompleteDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskCompleteDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(321, 133)
-        Me.TaskCompleteDateLbl.Name = "TaskCompleteDateLbl"
-        Me.TaskCompleteDateLbl.Size = New System.Drawing.Size(180, 19)
-        Me.TaskCompleteDateLbl.TabIndex = 21
-        Me.TaskCompleteDateLbl.Text = "00-00-0000 00:00:00"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(321, 109)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(126, 19)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "Completed on:"
         '
         'Main
         '
