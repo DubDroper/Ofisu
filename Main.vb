@@ -5,6 +5,7 @@ Imports System.ComponentModel
 Public Class Main
     Inherits RoundedForm
 
+    Private Const DefaultTaskTextBox As String = "...Add new task here..."
     Private isDragging As Boolean
     Private clickOffset As Point
     Private configFilePath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Ofisu_Config.ini")
@@ -29,6 +30,9 @@ Public Class Main
     Private WithEvents backgroundWorker As New BackgroundWorker
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        TaskTxtBox.Text = DefaultTaskTextBox
+
         InitializeRessourceCounters()
 
         isMainDbOnlinePicBoxColor = False
@@ -120,42 +124,52 @@ Public Class Main
     End Sub
 
     Private Sub CheckAndCreateConfigFile()
-        If Not File.Exists(configFilePath) Then
-            ' Create the configuration file with default parameters
-            Using writer As New StreamWriter(configFilePath)
-                writer.WriteLine("[MySqlDB]")
-                writer.WriteLine("Server=your_server")
-                writer.WriteLine("Database=your_database")
-                writer.WriteLine("User Id=your_user_id")
-                writer.WriteLine("Password=your_password")
-                ' Add other default parameters here
-                writer.WriteLine()
-                writer.WriteLine("[OtherParameters]")
-                writer.WriteLine("Parameter1=value1")
-                writer.WriteLine("Parameter2=value2")
-                ' Add more parameters as needed
-            End Using
-        Else
-            ' Load the parameters from the configuration file
-            LoadConfigParameters()
-        End If
+        Try
+            If Not File.Exists(configFilePath) Then
+                ' Create the configuration file with default parameters
+                Using writer As New StreamWriter(configFilePath)
+                    writer.WriteLine("[MySqlDB]")
+                    writer.WriteLine("Server=your_server")
+                    writer.WriteLine("Database=your_database")
+                    writer.WriteLine("User Id=your_user_id")
+                    writer.WriteLine("Password=your_password")
+                    ' Add other default parameters here
+                    writer.WriteLine()
+                    writer.WriteLine("[OtherParameters]")
+                    writer.WriteLine("Parameter1=value1")
+                    writer.WriteLine("Parameter2=value2")
+                    ' Add more parameters as needed
+                End Using
+            Else
+                ' Load the parameters from the configuration file
+                LoadConfigParameters()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while loading config parameters: " & ex.Message)
+        End Try
+
     End Sub
 
     Private Sub LoadConfigParameters()
-        ' Read and load parameters from the configuration file
-        Dim lines As String() = File.ReadAllLines(configFilePath)
-        For Each line As String In lines
-            ' Parse each line and load parameters
-            If line.StartsWith("Server=") Then
-                dbServer = line.Substring("Server=".Length)
-            ElseIf line.StartsWith("Database=") Then
-                dbName = line.Substring("Database=".Length)
-            ElseIf line.StartsWith("User Id=") Then
-                dbUserId = line.Substring("User Id=".Length)
-            ElseIf line.StartsWith("Password=") Then
-                dbPassword = line.Substring("Password=".Length)
-            End If
-        Next
+        Try
+            ' Read and load parameters from the configuration file
+            Dim lines As String() = File.ReadAllLines(configFilePath)
+            For Each line As String In lines
+                ' Parse each line and load parameters
+                If line.StartsWith("Server=") Then
+                    dbServer = line.Substring("Server=".Length)
+                ElseIf line.StartsWith("Database=") Then
+                    dbName = line.Substring("Database=".Length)
+                ElseIf line.StartsWith("User Id=") Then
+                    dbUserId = line.Substring("User Id=".Length)
+                ElseIf line.StartsWith("Password=") Then
+                    dbPassword = line.Substring("Password=".Length)
+                End If
+            Next
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while loading config parameters: " & ex.Message)
+        End Try
+
     End Sub
 
     ' BackgroundWorker DoWork event handler
@@ -344,11 +358,12 @@ Public Class Main
     End Sub
 
     Private Sub btnDeleteTask_Click(sender As Object, e As EventArgs) Handles btnDeleteTask.Click
+
         If TaskListBox.SelectedItem IsNot Nothing Then
             Dim taskText As String = TaskListBox.SelectedItem.ToString()
             Dim taskName As String = taskText.Replace("[Complete] ", "")
             DeleteTask(taskName)
-
+            FetchTasks()
         End If
     End Sub
 
@@ -429,4 +444,21 @@ Public Class Main
         End If
     End Sub
 
+    Private Sub TaskListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TaskListBox.SelectedIndexChanged
+        ' Show details of the selected task
+        If TaskListBox.SelectedItem IsNot Nothing Then
+            Dim selectedTaskText As String = TaskListBox.SelectedItem.ToString()
+            Dim selectedTaskName As String = selectedTaskText.Replace("[Complete] ", "")
+
+            If taskDictionary.ContainsKey(selectedTaskName) Then
+                Dim taskDetails = taskDictionary(selectedTaskName)
+                Dim addedDateTime As DateTime = taskDetails.AddedDateTime
+                Dim completedDateTime As DateTime = taskDetails.CompletedTime
+
+                ' Display the details in labels or any other UI elements
+                TaskCreatedDateLbl.Text = addedDateTime.ToString("dd-MM-yyyy HH:mm:ss")
+                TaskCompleteDateLbl.Text = If(completedDateTime = DateTime.MinValue, "Not yet.", completedDateTime.ToString("dd-MM-yyyy HH:mm:ss"))
+            End If
+        End If
+    End Sub
 End Class

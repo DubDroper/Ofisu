@@ -37,13 +37,15 @@ Partial Class Main
         Me.MainProBar = New System.Windows.Forms.ProgressBar()
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TaskCreatedDateLbl = New System.Windows.Forms.Label()
+        Me.TaskCompleteDateLbl = New System.Windows.Forms.Label()
         Me.ShowCompletedRadio = New System.Windows.Forms.RadioButton()
         Me.ShowUnCompRadio = New System.Windows.Forms.RadioButton()
         Me.ShowAllRadio = New System.Windows.Forms.RadioButton()
-        Me.TaskCompleteDateLbl = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TaskCreatedDateLbl = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnDeleteTask = New System.Windows.Forms.Button()
         Me.btnCompleteTask = New System.Windows.Forms.Button()
         Me.TaskTxtBox = New System.Windows.Forms.TextBox()
@@ -61,6 +63,8 @@ Partial Class Main
         CType(Me.isMainDbOnlinePicBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainPanel.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel7.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -181,7 +185,7 @@ Partial Class Main
         Me.MainPanel.Controls.Add(Me.Panel3)
         Me.MainPanel.Controls.Add(Me.Panel1)
         Me.MainPanel.Controls.Add(Me.Panel5)
-        Me.MainPanel.Location = New System.Drawing.Point(5, 36)
+        Me.MainPanel.Location = New System.Drawing.Point(5, 34)
         Me.MainPanel.Name = "MainPanel"
         Me.MainPanel.Size = New System.Drawing.Size(1230, 660)
         Me.MainPanel.TabIndex = 0
@@ -189,13 +193,10 @@ Partial Class Main
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Controls.Add(Me.ShowCompletedRadio)
         Me.Panel3.Controls.Add(Me.ShowUnCompRadio)
         Me.Panel3.Controls.Add(Me.ShowAllRadio)
-        Me.Panel3.Controls.Add(Me.TaskCompleteDateLbl)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.TaskCreatedDateLbl)
-        Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.btnDeleteTask)
         Me.Panel3.Controls.Add(Me.btnCompleteTask)
         Me.Panel3.Controls.Add(Me.TaskTxtBox)
@@ -206,6 +207,71 @@ Partial Class Main
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(508, 298)
         Me.Panel3.TabIndex = 1
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.Panel7)
+        Me.Panel6.Location = New System.Drawing.Point(321, 145)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(180, 107)
+        Me.Panel6.TabIndex = 22
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.Label2)
+        Me.Panel7.Controls.Add(Me.Label4)
+        Me.Panel7.Controls.Add(Me.TaskCreatedDateLbl)
+        Me.Panel7.Controls.Add(Me.TaskCompleteDateLbl)
+        Me.Panel7.Location = New System.Drawing.Point(3, 3)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(174, 100)
+        Me.Panel7.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Consolas", 11.0!)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(3, 4)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(96, 18)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Created on:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Consolas", 11.0!)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(3, 55)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(112, 18)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "Completed on:"
+        '
+        'TaskCreatedDateLbl
+        '
+        Me.TaskCreatedDateLbl.AutoSize = True
+        Me.TaskCreatedDateLbl.Font = New System.Drawing.Font("Consolas", 11.0!)
+        Me.TaskCreatedDateLbl.ForeColor = System.Drawing.Color.White
+        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(3, 23)
+        Me.TaskCreatedDateLbl.Name = "TaskCreatedDateLbl"
+        Me.TaskCreatedDateLbl.Size = New System.Drawing.Size(160, 18)
+        Me.TaskCreatedDateLbl.TabIndex = 19
+        Me.TaskCreatedDateLbl.Text = "00-00-0000 00:00:00"
+        '
+        'TaskCompleteDateLbl
+        '
+        Me.TaskCompleteDateLbl.AutoSize = True
+        Me.TaskCompleteDateLbl.Font = New System.Drawing.Font("Consolas", 11.0!)
+        Me.TaskCompleteDateLbl.ForeColor = System.Drawing.Color.White
+        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(3, 74)
+        Me.TaskCompleteDateLbl.Name = "TaskCompleteDateLbl"
+        Me.TaskCompleteDateLbl.Size = New System.Drawing.Size(160, 18)
+        Me.TaskCompleteDateLbl.TabIndex = 21
+        Me.TaskCompleteDateLbl.Text = "00-00-0000 00:00:00"
         '
         'ShowCompletedRadio
         '
@@ -248,50 +314,6 @@ Partial Class Main
         Me.ShowAllRadio.Text = "Show All"
         Me.ShowAllRadio.UseVisualStyleBackColor = True
         '
-        'TaskCompleteDateLbl
-        '
-        Me.TaskCompleteDateLbl.AutoSize = True
-        Me.TaskCompleteDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskCompleteDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCompleteDateLbl.Location = New System.Drawing.Point(321, 222)
-        Me.TaskCompleteDateLbl.Name = "TaskCompleteDateLbl"
-        Me.TaskCompleteDateLbl.Size = New System.Drawing.Size(180, 19)
-        Me.TaskCompleteDateLbl.TabIndex = 21
-        Me.TaskCompleteDateLbl.Text = "00-00-0000 00:00:00"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(321, 203)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(126, 19)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "Completed on:"
-        '
-        'TaskCreatedDateLbl
-        '
-        Me.TaskCreatedDateLbl.AutoSize = True
-        Me.TaskCreatedDateLbl.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.TaskCreatedDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TaskCreatedDateLbl.Location = New System.Drawing.Point(321, 171)
-        Me.TaskCreatedDateLbl.Name = "TaskCreatedDateLbl"
-        Me.TaskCreatedDateLbl.Size = New System.Drawing.Size(180, 19)
-        Me.TaskCreatedDateLbl.TabIndex = 19
-        Me.TaskCreatedDateLbl.Text = "00-00-0000 00:00:00"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(321, 152)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 19)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Created on:"
-        '
         'btnDeleteTask
         '
         Me.btnDeleteTask.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -325,15 +347,13 @@ Partial Class Main
         'TaskTxtBox
         '
         Me.TaskTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(61, Byte), Integer), CType(CType(61, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TaskTxtBox.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TaskTxtBox.Font = New System.Drawing.Font("Roboto", 16.0!)
         Me.TaskTxtBox.ForeColor = System.Drawing.Color.White
         Me.TaskTxtBox.Location = New System.Drawing.Point(63, 5)
         Me.TaskTxtBox.MaxLength = 128
-        Me.TaskTxtBox.Multiline = True
         Me.TaskTxtBox.Name = "TaskTxtBox"
-        Me.TaskTxtBox.Size = New System.Drawing.Size(398, 31)
+        Me.TaskTxtBox.Size = New System.Drawing.Size(398, 33)
         Me.TaskTxtBox.TabIndex = 15
-        Me.TaskTxtBox.Text = "...Add new task here..."
         Me.TaskTxtBox.WordWrap = False
         '
         'TaskListBox
@@ -356,7 +376,7 @@ Partial Class Main
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(6, 10)
+        Me.Label1.Location = New System.Drawing.Point(3, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 19)
         Me.Label1.TabIndex = 13
@@ -371,10 +391,12 @@ Partial Class Main
         Me.btnAddTask.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold)
         Me.btnAddTask.ForeColor = System.Drawing.Color.Transparent
         Me.btnAddTask.Location = New System.Drawing.Point(467, 5)
+        Me.btnAddTask.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAddTask.Name = "btnAddTask"
-        Me.btnAddTask.Size = New System.Drawing.Size(34, 31)
+        Me.btnAddTask.Size = New System.Drawing.Size(34, 33)
         Me.btnAddTask.TabIndex = 12
         Me.btnAddTask.Text = "+"
+        Me.btnAddTask.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnAddTask.UseVisualStyleBackColor = True
         '
         'Panel1
@@ -398,11 +420,11 @@ Partial Class Main
         'TimeDateLbl
         '
         Me.TimeDateLbl.AutoSize = True
-        Me.TimeDateLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TimeDateLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TimeDateLbl.ForeColor = System.Drawing.Color.White
-        Me.TimeDateLbl.Location = New System.Drawing.Point(-1, 8)
+        Me.TimeDateLbl.Location = New System.Drawing.Point(2, 7)
         Me.TimeDateLbl.Name = "TimeDateLbl"
-        Me.TimeDateLbl.Size = New System.Drawing.Size(161, 17)
+        Me.TimeDateLbl.Size = New System.Drawing.Size(142, 17)
         Me.TimeDateLbl.TabIndex = 0
         Me.TimeDateLbl.Text = "00-00-0000 00:00:00"
         '
@@ -410,9 +432,9 @@ Partial Class Main
         '
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.Panel5.Controls.Add(Me.Panel4)
-        Me.Panel5.Location = New System.Drawing.Point(1065, 45)
+        Me.Panel5.Location = New System.Drawing.Point(1058, 45)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(157, 59)
+        Me.Panel5.Size = New System.Drawing.Size(164, 59)
         Me.Panel5.TabIndex = 2
         '
         'Panel4
@@ -422,7 +444,7 @@ Partial Class Main
         Me.Panel4.Controls.Add(Me.CpuUsageLbl)
         Me.Panel4.Location = New System.Drawing.Point(3, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(151, 52)
+        Me.Panel4.Size = New System.Drawing.Size(158, 52)
         Me.Panel4.TabIndex = 1
         '
         'RamUsageLbl
@@ -441,7 +463,7 @@ Partial Class Main
         Me.CpuUsageLbl.AutoSize = True
         Me.CpuUsageLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CpuUsageLbl.ForeColor = System.Drawing.Color.White
-        Me.CpuUsageLbl.Location = New System.Drawing.Point(2, 3)
+        Me.CpuUsageLbl.Location = New System.Drawing.Point(2, 6)
         Me.CpuUsageLbl.Name = "CpuUsageLbl"
         Me.CpuUsageLbl.Size = New System.Drawing.Size(78, 17)
         Me.CpuUsageLbl.TabIndex = 1
@@ -487,6 +509,9 @@ Partial Class Main
         Me.MainPanel.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -533,4 +558,6 @@ Partial Class Main
     Friend WithEvents ShowCompletedRadio As RadioButton
     Friend WithEvents ShowUnCompRadio As RadioButton
     Friend WithEvents ShowAllRadio As RadioButton
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel7 As Panel
 End Class
